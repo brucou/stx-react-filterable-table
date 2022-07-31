@@ -129,7 +129,7 @@ return /******/ (function(modules) { // webpackBootstrap
 				totalPages: 1,
 				visiblePages: 5,
 				page: 0,
-				pageSize: +localStorage.getItem(_this.props.namespace + '.PageSize') || _this.props.pageSize || 10,
+				pageSize: _this.props.pageSize || 10,
 				shiftDown: false
 			};
 
@@ -274,15 +274,9 @@ return /******/ (function(modules) { // webpackBootstrap
 			}
 		}, {
 			key: 'addExactFilter',
-			value: function addExactFilter(value, fieldname, name) {
-				console.log('name:', name);
-				console.log('fieldname:', fieldname);
-				if (!name) {
-					console.log("No name");
-					name = fieldname;
-					console.log("Use fieldname");
-					console.log("name:", name);
-				}
+			value: function addExactFilter(value, fieldname) {
+				var name = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : fieldname;
+
 				// Exact filters are an array; grab the existing ones and push this one on it.
 				// Don't add it if value is null/undefined
 				if (value === undefined || value === null || value.toString().length === 0) {
@@ -381,9 +375,6 @@ return /******/ (function(modules) { // webpackBootstrap
 			value: function updatePageSize(event) {
 				var pageSize = +event.target.value;
 				this.setState({ page: 0, pageSize: pageSize });
-				if (this.props.namespace) {
-					localStorage.setItem(this.props.namespace + '.PageSize', pageSize);
-				}
 			}
 		}, {
 			key: 'filterInputChanged',
@@ -500,7 +491,7 @@ return /******/ (function(modules) { // webpackBootstrap
 					current: this.state.page,
 					visiblePages: this.state.visiblePages,
 					onPageChanged: this.updatePage,
-					className: this.props.pagerTopClassName || "pagination-sm pull-right",
+					className: this.props.pagerTopClassName,
 					titles: this.props.pagerTitles
 				});
 

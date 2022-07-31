@@ -20,7 +20,7 @@ class FilterableTable extends React.Component {
 			totalPages: 1,
 			visiblePages: 5,
 			page: 0,
-			pageSize: +localStorage.getItem(this.props.namespace + '.PageSize') || this.props.pageSize || 10,
+			pageSize: this.props.pageSize || 10,
 			shiftDown: false
 		}
 
@@ -251,9 +251,6 @@ class FilterableTable extends React.Component {
 	updatePageSize(event) {
 		let pageSize = +event.target.value;
 		this.setState({ page: 0, pageSize });
-		if (this.props.namespace) {
-			localStorage.setItem(this.props.namespace + '.PageSize', pageSize);
-		}
 	}
 
 	filterInputChanged(event) {
@@ -336,7 +333,6 @@ class FilterableTable extends React.Component {
 		});
 
 
-
 		let table = !this.state.loading && this.state.entries.length > 0 &&
 			<Table
 				records={filteredEntries}
@@ -373,7 +369,7 @@ class FilterableTable extends React.Component {
 				current={this.state.page}
 				visiblePages={this.state.visiblePages}
 				onPageChanged={this.updatePage}
-				className={this.props.pagerTopClassName || "pagination-sm pull-right"}
+				className={this.props.pagerTopClassName}
 				titles={this.props.pagerTitles}
 			/>;
 
