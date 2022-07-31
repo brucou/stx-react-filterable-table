@@ -2,7 +2,6 @@ const ReactDOM = require('react-dom');
 const FilterableTable = require('../../src/Components/FilterableTable.jsx');
 
 let data = [
-	// { operation: "Example of a long operation", role: "Admin", cluster: "Viewer", environment: "Viewer", application: "Viewer", "managed service": "Viewer", "application component": "Viewer", "library":"Viewer" },
 	{ operation: "See Applications", role: "User", cluster: "", environment: "", application: "Viewer", 'managed service': "", 'application component': "", library: ""},
 	{ operation: "See Libraries", role: "User", cluster: "", environment: "", application: "", 'managed service': "", 'application component': "", library: "Viewer"},
 	{ operation: "See Managed Services", role: "User", cluster: "", environment: "", application: "", 'managed service': "Viewer", 'application component': "", library: ""},

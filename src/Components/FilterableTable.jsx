@@ -1,7 +1,8 @@
 ﻿import React from 'react';
 import Table from './Table';
 import Header from './Header';
-import Pager from 'react-pager';
+// Directly copied due to outdated depedency on old version of React
+import Pager from '../pager';
 import FilterAndSort from '../Helpers/FilterAndSort';
 import isElementInViewport from '../Helpers/isElementInViewport';
 

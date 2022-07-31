@@ -1,4 +1,29 @@
-## Note
+## Architecture Detail Record
+This directory is forked for the `react-filterable-table` due to compatibility issues when building (Docusaurus uses React v17). Key differences:
+- removed usage of `localStorage`
+- bumped up the version of React used 
+- added script to build the  package and the example (e.g., `npm run build`, `npm run example`)
+- adjusted the example to fit the documentation use case that justified using this package (RBAC permission table). 
+
+In short, we needed a table with a nice style and good UX:
+- pagination (table has > 100 rows)
+- content can be searched
+- sorting functionality nice to have but optional
+- customizable styling, but with excellent defaults
+  - must look nice out of the bat 
+  - there will be many columns to fit in a 700px space, so some font adjustment or icon usage may be necessary
+
+There is an [online demo](https://ianwitherow.github.io/react-filterable-table/example/index.html) for the original package. 
+
+This package is intended for internal use and not for sharing with the global developer community. Other choices:
+
+- [Evergeen's Table component](https://evergreen.segment.com/components/table) 
+- [Blueprint's Table component](https://blueprintjs.com/docs/#table)
+- [react-table](https://tanstack.com/table/v8/?from=reactTableV7&original=https://react-table-v7.tanstack.com/)
+
+The `react-filterable-table` package was chosen because it seems to minimize customization work. Filter and sorting functionalities were already implemented.
+
+## Note 2
 I'm no longer actively working on this, but please feel free to fork it.
 
 # react-filterable-table
